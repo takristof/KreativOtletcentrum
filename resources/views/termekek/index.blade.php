@@ -4,20 +4,19 @@
 
     <table>
         <tr>
-            <th>Person</th>
-            <th>Height</th>
-            <th>Price</th>
+            <th>Termék neve</th>
+            <th>Termék ára</th>
+            <th>Termék mennyisége</th>
+            <th>Termék elérhetősége</th>
         </tr>
     @foreach ($termekek as $termek)
         <tr>
             <td>
-                <a href="{{ route('termekek.show', $termek->id) }}">{{ $termek->person }}</a>
+                <a href="{{ route('termekek.show', $termek->id) }}">{{ $termek->termek_nev }}</a>
             </td>
-            <td>{{ $termek->height }}</td>
-            <td>{{ $termek->price }}</td>
-            <td>
-                @include('delete-termek-button',  ['termekId' => $termek->id])
-            </td>
+            <td>{{ $termek->ar }}</td>
+            <td>{{ $termek->mennyiseg }}</td>
+            <td>{{ $termek->elerheto-e }}</td>
         </tr>
     @endforeach
     </table>

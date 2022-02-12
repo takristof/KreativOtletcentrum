@@ -14,9 +14,9 @@ use App\Http\Controllers\TermekekController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [ Homecontroller::class, 'index' ])->name('home');
+
+Route::resource('termekek', TermekekController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -24,6 +24,6 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Route::resource('termekek', TermekekController::class);
+
 
 

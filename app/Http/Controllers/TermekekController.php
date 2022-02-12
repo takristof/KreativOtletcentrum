@@ -58,7 +58,7 @@ class TermekekController extends Controller
      */
     public function edit(Termekek $termekek)
     {
-        //
+        return view('termekek.edit', ['termekek' => $termekek]);
     }
 
     /**
