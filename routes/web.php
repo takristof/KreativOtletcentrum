@@ -14,7 +14,6 @@ use App\Http\Controllers\TermekekController;
 |
 */
 
-Route::get('/', [ Homecontroller::class, 'index' ])->name('home');
 
 Route::resource('termekek', TermekekController::class);
 
