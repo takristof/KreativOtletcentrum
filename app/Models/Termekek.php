@@ -9,6 +9,8 @@ class Termekek extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['termek_nev', 'ar', 'mennyiseg','elerheto-e'];
+
     protected $visible = [
         'termek_id',
         'termek_nev',

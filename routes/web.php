@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TermekekController;
+use App\Http\Controllers\HomeController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +15,7 @@ use App\Http\Controllers\TermekekController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/', [ HomeController::class, 'index' ])->name('home');
 
 Route::resource('termekek', TermekekController::class);
 

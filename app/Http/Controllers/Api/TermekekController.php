@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Termekek;
+use App\Http\Requests\TermekekRequest;
 
 class TermekekController extends Controller
 {
@@ -35,9 +36,12 @@ class TermekekController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TermekekRequest $request)
     {
-
+        $termek = new Termekek();
+        $termek->fill($request->all());
+        $termek->save();
+        return response()->json($termek, 201);
     }
 
     /**
@@ -69,9 +73,11 @@ class TermekekController extends Controller
      * @param  \App\Models\Termekek $termek
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Termekek $termek)
+    public function update(TermekekRequest $request, Termekek $termek)
     {
-
+        $termek->fill($request->all());
+        $termek->save();
+        return response()->json($termek, 200);
     }
 
     /**
@@ -82,6 +88,7 @@ class TermekekController extends Controller
      */
     public function destroy(int $id)
     {
-
+        Termekek::destroy($id);
+        return response()->noContent();
     }
 }

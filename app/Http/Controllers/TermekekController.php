@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Termekek;
 use Illuminate\Http\Request;
+use App\Http\Requests\TermekekRequest;
 
 class TermekekController extends Controller
 {
@@ -34,9 +35,13 @@ class TermekekController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TermekekRequest $request)
     {
-        //
+        $adatok = $request->only(['termek_nev', 'ar', 'mennyiseg','elerheto-e']);
+        $termek = new Termekek();
+        $termek->fill($adatok);
+        $termek->save();
+        return redirect()->route('termekek.index');
     }
 
     /**
@@ -68,9 +73,12 @@ class TermekekController extends Controller
      * @param  \App\Models\Termekek  $termekek
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Termekek $termekek)
+    public function update(TermekekRequest $request, Termekek $termek)
     {
-        //
+        $adatok = $request->only(['termek_nev', 'ar', 'mennyiseg','elerheto-e']);
+        $termek->fill($adatok);
+        $termek->save();
+        return redirect()->route('statues.show', $termek->id);
     }
 
     /**
@@ -79,8 +87,9 @@ class TermekekController extends Controller
      * @param  \App\Models\Termekek  $termekek
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Termekek $termekek)
+    public function destroy(Termekek $termek)
     {
-        //
+        $termek->delete();
+        return redirect()->route('termekek.index');
     }
 }
