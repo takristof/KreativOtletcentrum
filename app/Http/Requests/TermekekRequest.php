@@ -24,10 +24,10 @@ class TermekekRequest extends FormRequest
     public function rules()
     {
         return [
-            'termek_nev' => 'required|min:50',
+            'termek_nev' => 'required|min:1|max:50',
             'ar' => 'required|numeric|min:1|max:250000',
-            'mennyiseg' => 'required|numeric|min:10000',
-            'elerheto-e' => 'required|boolean',
+            'mennyiseg' => 'required|numeric|min:0|max:10000',
+            
         ];
     }
 }
