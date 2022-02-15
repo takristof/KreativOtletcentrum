@@ -18,7 +18,8 @@ class Termekek extends Migration
             $table->string('termek_nev');
             $table->integer('ar');
             $table->integer('mennyiseg');
-            $table->boolean('elerheto_e');
+            $table->boolean('elerheto_e')->default(1);
+            $table->timestamps();
         });
 
     }
