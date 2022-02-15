@@ -12,11 +12,11 @@
     @foreach ($termekek as $termek)
         <tr>
             <td>
-                <a href="{{ route('termekek.show', $termek->id) }}">{{ $termek->termek_nev }}</a>
+                <a href="{{ route('termekek.show', $termek->termek_id) }}">{{ $termek->termek_nev }}</a>
             </td>
             <td>{{ $termek->ar }}</td>
             <td>{{ $termek->mennyiseg }}</td>
-            <td>{{ $termek->elerheto-e }}</td>
+            <td>{{ $termek->elerheto_e }}</td>
         </tr>
     @endforeach
     </table>
