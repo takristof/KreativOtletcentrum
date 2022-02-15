@@ -14,7 +14,7 @@ class Kosar extends Migration
     public function up()
     {
         Schema::create('kosar', function (Blueprint $table) {
-            $table->integer('termek_id');
+            $table->integer('id');
             $table->integer('felh_id');
             $table->integer('mennyiseg');
             $table->timestamp('kosarba_helyezes');

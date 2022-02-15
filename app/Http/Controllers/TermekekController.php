@@ -15,7 +15,7 @@ class TermekekController extends Controller
      */
     public function index()
     {
-        $termekek = Termekek::orderBy('termek_id')->get();
+        $termekek = Termekek::orderBy('id')->get();
         return view('termekek.index', [ 'termekek' => $termekek ]);
     }
 

@@ -17,7 +17,7 @@ class Rendeles extends Migration
             $table->id('rendeles_id');
             $table->integer('osszeg');
             $table->integer('felh_id');
-            $table->integer('termek_id');
+            $table->integer('id');
             $table->timestamp('idopont');
         });
     }
